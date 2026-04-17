@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#080808"/>
+
+  <!-- Top-left node -->
+  <rect x="2" y="2" width="5" height="5" fill="#22c55e"/>
+  <!-- Top-right node -->
+  <rect x="25" y="2" width="5" height="5" fill="#22c55e"/>
+  <!-- Bottom-center node -->
+  <rect x="13.5" y="25" width="5" height="5" fill="#22c55e"/>
+
+  <!-- Top connector (subtle) -->
+  <line x1="7" y1="4.5" x2="25" y2="4.5" stroke="#22c55e" stroke-width="1" stroke-opacity="0.35"/>
+
+  <!-- V left arm -->
+  <line x1="4.5" y1="7" x2="16" y2="25" stroke="#22c55e" stroke-width="2.5" stroke-linecap="square"/>
+  <!-- V right arm -->
+  <line x1="27.5" y1="7" x2="16" y2="25" stroke="#22c55e" stroke-width="2.5" stroke-linecap="square"/>
+</svg>

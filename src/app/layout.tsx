@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "Vertex — Bridge, Swap, and Send stablecoins on the Arc L1 blockchain.",
   keywords: ["Vertex", "Arc", "L1", "blockchain", "USDC", "bridge", "swap", "DeFi"],
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
   },
   openGraph: {
     title: "Vertex | Testnet",
