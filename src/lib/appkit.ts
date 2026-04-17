@@ -21,7 +21,7 @@ export async function createAdapter() {
   return createViemAdapterFromProvider({ provider: window.ethereum });
 }
 
-export const KIT_KEY = process.env.NEXT_PUBLIC_KIT_KEY ?? "";
+export const KIT_KEY = (process.env.NEXT_PUBLIC_KIT_KEY ?? "").trim();
 
 export type TxStatus =
   | "idle"
