@@ -88,14 +88,14 @@ export function BridgePanel() {
       <div className="flex items-end gap-2">
         <div className="flex-1">
           <label className="text-xs text-arc-muted mb-1.5 block">From</label>
-          <select value={from} onChange={e => setFrom(e.target.value)} disabled={busy} className="arc-input text-sm">
+          <select value={from} onChange={e => setFrom(e.target.value as BridgeChainId)} disabled={busy} className="arc-input text-sm">
             {CHAINS.map(c => <option key={c.id} value={c.id} style={{ background: "#0f0f0f" }}>{c.label}</option>)}
           </select>
         </div>
         <button onClick={flip} disabled={busy} className="btn-ghost flex-shrink-0 px-3 py-2.5 mb-0">⇄</button>
         <div className="flex-1">
           <label className="text-xs text-arc-muted mb-1.5 block">To</label>
-          <select value={to} onChange={e => setTo(e.target.value)} disabled={busy} className="arc-input text-sm">
+          <select value={to} onChange={e => setTo(e.target.value as BridgeChainId)} disabled={busy} className="arc-input text-sm">
             {CHAINS.map(c => <option key={c.id} value={c.id} style={{ background: "#0f0f0f" }}>{c.label}</option>)}
           </select>
         </div>
