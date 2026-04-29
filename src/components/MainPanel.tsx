@@ -1,16 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { BridgePanel } from "./BridgePanel";
-import { SwapPanel }   from "./SwapPanel";
-import { SendPanel }   from "./SendPanel";
+import { BridgePanel }   from "./BridgePanel";
+import { SwapPanel }     from "./SwapPanel";
+import { SendPanel }     from "./SendPanel";
+import { UnifiedPanel }  from "./UnifiedPanel";
 
-type Tab = "bridge" | "swap" | "send";
+type Tab = "bridge" | "swap" | "send" | "unified";
 
 const TABS: { id: Tab; label: string }[] = [
-  { id: "bridge", label: "Bridge" },
-  { id: "swap",   label: "Swap"   },
-  { id: "send",   label: "Send"   },
+  { id: "bridge",  label: "Bridge"  },
+  { id: "swap",    label: "Swap"    },
+  { id: "send",    label: "Send"    },
+  { id: "unified", label: "Unified" },
 ];
 
 export function MainPanel() {
@@ -37,9 +39,10 @@ export function MainPanel() {
 
       {/* Content */}
       <div className="p-5 animate-fade-in">
-        {tab === "bridge" && <BridgePanel />}
-        {tab === "swap"   && <SwapPanel   />}
-        {tab === "send"   && <SendPanel   />}
+        {tab === "bridge"  && <BridgePanel  />}
+        {tab === "swap"    && <SwapPanel    />}
+        {tab === "send"    && <SendPanel    />}
+        {tab === "unified" && <UnifiedPanel />}
       </div>
     </div>
   );

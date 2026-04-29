@@ -2,6 +2,7 @@
 
 import { useAccount, useChainId, useSwitchChain } from "wagmi";
 import { useArcBalances } from "@/hooks/useArcBalances";
+import { useUnifiedBalance } from "@/hooks/useUnifiedBalance";
 import { arcTestnet } from "@/config/chains";
 
 const TOKENS = [
@@ -15,6 +16,9 @@ export function BalanceCard() {
   const chainId = useChainId();
   const { switchChain } = useSwitchChain();
   const { usdcBalance, eurcBalance, usycBalance, refetch } = useArcBalances();
+  const { balance: unified, fetch: fetchUnified } = useUnifiedBalance();
+
+  function refetchAll() { refetch(); fetchUnified(); }
 
   const balances: Record<string, string> = {
     USDC: usdcBalance,
@@ -29,7 +33,7 @@ export function BalanceCard() {
       <div className="flex items-center justify-between">
         <span className="text-sm font-semibold text-arc-white">Balances</span>
         {isConnected && (
-          <button onClick={refetch} className="text-arc-muted hover:text-arc-green transition-colors text-xs">
+          <button onClick={refetchAll} className="text-arc-muted hover:text-arc-green transition-colors text-xs">
             ↻ Refresh
           </button>
         )}
@@ -49,6 +53,14 @@ export function BalanceCard() {
         </div>
       ) : (
         <div className="flex flex-col gap-2">
+          {unified && (
+            <div className="flex items-center justify-between py-2 border-b border-arc-border">
+              <span className="text-xs text-arc-muted font-mono">USDC (Unified)</span>
+              <span className="text-sm font-semibold font-mono text-arc-green">
+                {parseFloat(unified.totalConfirmed).toFixed(4)}
+              </span>
+            </div>
+          )}
           {TOKENS.map(t => (
             <div key={t.symbol} className="flex items-center justify-between py-2 border-b border-arc-border last:border-0">
               <span className="text-xs text-arc-muted font-mono">{t.symbol}</span>
